@@ -12,9 +12,14 @@ function isFooterRow(cell) {
   const children = [...cell.children].filter((el) => el.textContent.trim());
   return (
     children.length > 0
-    && children.every(
-      (el) => el.tagName === 'P' && [...el.children].every((c) => c.tagName === 'A'),
-    )
+    && children.every((el) => {
+      if (el.tagName !== 'P') return false;
+      // Allow <a> directly or wrapped in <strong>/<em> (Google Docs bold links)
+      return [...el.children].every(
+        (c) => c.tagName === 'A'
+          || (['STRONG', 'EM'].includes(c.tagName) && c.querySelector('a')),
+      );
+    })
   );
 }
 
