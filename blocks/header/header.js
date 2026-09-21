@@ -39,6 +39,7 @@ function closeOnFocusLost(e) {
 }
 
 function openOnKeydown(e) {
+  console.log("KEY DOWN")
   const focused = document.activeElement;
   const isNavDrop = focused.className === 'nav-drop';
   if (isNavDrop && (e.code === 'Enter' || e.code === 'Space')) {
