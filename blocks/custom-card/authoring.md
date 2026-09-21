@@ -16,6 +16,8 @@ Insert a single image into the first row. No other content should appear in this
 
 If you omit this row, the card starts with the content area.
 
+**Recommended image aspect ratios:** 16:9 (default) or 1:1. Images extend to the top and corners of the card. Use the `Square` variant for a 1:1 crop (see Variants below).
+
 ---
 
 ## Row 2 — Content *(required)*
@@ -51,6 +53,10 @@ Each action is a hyperlink on its own line. The **first link** becomes the prima
 
 Only links should appear in this row — no other text.
 
+**Default button order:** Primary button on the left, secondary on the right. On mobile (425px and below), buttons stack vertically with the primary button on top.
+
+To place the primary button on the right, add `Button Right Align` to the block name (see Variants below).
+
 ---
 
 ## Full example table
@@ -63,26 +69,56 @@ Only links should appear in this row — no other text.
 
 ---
 
-## Background style variants
+## Layout and sizing
 
-Change the block name in the table header to apply a background.
-
-| Block name | Visual treatment |
-|---|---|
-| `Custom Card` | White (default) |
-| `Custom Card Navy` | Dark navy background, white text |
-| `Custom Card Neutral Gray` | Light gray background |
-| `Custom Card Transparent Light` | Transparent, for use on light-colored sections |
-| `Custom Card Transparent Dark` | Transparent, for use on dark-colored sections |
+- Cards take up **100% width** of their container with no max-width. They are designed to be placed inside a flex/grid layout or page template alongside other cards.
+- Cards automatically **grow in height** to match the tallest card in the row — footers and CTAs align along the bottom edge.
+- CTA buttons **stack vertically** at 425px and below, with the primary button on top.
 
 ---
 
-## Layout alignment
+## Variants
 
-Add `Centered` to the block name to center-align the content and CTAs:
+Add one or more of the following words to the block name to apply a variant. Words can be combined (e.g. `Custom Card Navy Shadow Centered`).
 
-- `Custom Card Centered`
-- `Custom Card Navy Centered`
+### Background
+
+| Block name suffix | Visual treatment |
+|---|---|
+| *(none)* | White (default) |
+| `Navy` | Dark navy background, white text |
+| `Neutral Gray` | Light gray background |
+| `Transparent Light` | Transparent, for use on light-colored sections |
+| `Transparent Dark` | Transparent, for use on dark-colored sections |
+
+### Image aspect ratio
+
+| Block name suffix | Crop |
+|---|---|
+| *(none)* | 16:9 (default) |
+| `Square` | 1:1 |
+
+### Button alignment
+
+| Block name suffix | Behavior |
+|---|---|
+| *(none)* | Primary on left, secondary on right |
+| `Button Right Align` | Primary on right, secondary on left |
+
+### Content alignment
+
+| Block name suffix | Behavior |
+|---|---|
+| *(none)* | Left-aligned |
+| `Centered` | Content and CTAs centered |
+
+### Elevation (drop shadow)
+
+| Block name suffix | Shadow level |
+|---|---|
+| `Shadow Sm` | Subtle shadow |
+| `Shadow` | Standard shadow |
+| `Shadow Lg` | Prominent shadow |
 
 ---
 
@@ -92,3 +128,4 @@ Add `Centered` to the block name to center-align the content and CTAs:
 - Keep body copy to 2–3 sentences max for scannability.
 - The header image row must contain *only* an image — adding any text or links will cause it to be treated as content instead.
 - Footer links must be on their own lines with no surrounding text, otherwise the row will be treated as body copy.
+- Cards are intended for use within a layout — place multiple cards in a section or columns block to form a card grid.

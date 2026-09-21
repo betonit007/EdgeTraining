@@ -1,3 +1,7 @@
+.custom-card {
+  width: 100%;
+}
+
 .custom-card-inner {
   display: flex;
   flex-direction: column;
@@ -19,6 +23,12 @@
   display: block;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+/* Square image variant */
+.custom-card.square .custom-card-header picture,
+.custom-card.square .custom-card-header img {
+  aspect-ratio: 1 / 1;
 }
 
 /* Content */
@@ -61,13 +71,35 @@
   line-height: 1.6;
 }
 
-/* Footer */
+/* Footer — primary left, secondary right by default */
 .custom-card-footer {
   padding: 16px 24px 24px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
+  justify-content: flex-start;
+}
+
+/* Button right-align variant — primary on right, secondary on left */
+.custom-card.button-right-align .custom-card-footer {
+  flex-direction: row-reverse;
+}
+
+/* Button stacking at mobile breakpoint */
+@media (max-width: 425px) {
+  .custom-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .custom-card.button-right-align .custom-card-footer {
+    flex-direction: column;
+  }
+
+  .custom-card-footer .button {
+    text-align: center;
+  }
 }
 
 /* Centered alignment variant */
@@ -78,6 +110,19 @@
 
 .custom-card.centered .custom-card-footer {
   justify-content: center;
+}
+
+/* Elevation variants */
+.custom-card.shadow-sm .custom-card-inner {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.custom-card.shadow .custom-card-inner {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-card.shadow-lg .custom-card-inner {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* Background variants */
